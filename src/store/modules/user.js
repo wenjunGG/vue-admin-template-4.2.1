@@ -29,14 +29,13 @@ const actions = {
         debugger;
         const { data } = response
         commit('SET_TOKEN', data.token)
-        setToken(data.token)
+        setToken(data.token);
         resolve()
       }).catch(error => {
         reject(error)
       })
     })
   },
-
   // get user info
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
@@ -48,7 +47,6 @@ const actions = {
         }
 
         const { userName, picture } = data
-
         commit('SET_NAME', userName)
         commit('SET_AVATAR', picture)
         resolve(data)
@@ -57,7 +55,6 @@ const actions = {
       })
     })
   },
-
   // user logout
   logout({ commit, state }) {
     return new Promise((resolve, reject) => {

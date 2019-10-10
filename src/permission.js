@@ -31,9 +31,12 @@ router.beforeEach(async(to, from, next) => {
         next()
       } else {
         try {
-          // get user info
+          //获取用户信息
           await store.dispatch('user/getInfo')
 
+          //获取菜单
+          await store.dispatch('menu/getMenuList')
+          
           next()
         } catch (error) {
           // remove token and go to login page to re-login
